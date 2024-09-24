@@ -1,6 +1,7 @@
 ﻿using CapaNegocio;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -44,11 +45,33 @@ namespace CapaPresentacion
             carrera.NombreCarrera = txtCarrera.Text.Trim();
             if (carrera.Eliminar())
                 Listar();
+            else
+            {
+                Response.Write("Error: No se agrego correctamente");
+            }
         }
 
         protected void btnActualizar_Click(object sender, EventArgs e)
         {
+            Carrera carrera = new Carrera
+            {
+                CodCarrera = txtCodCarrera.Text.Trim(),
+                NombreCarrera = txtCarrera.Text.Trim()
+            };
 
+            if (carrera.Actualizar())
+                Listar();
+            else
+                Response.Write("Error: No se actualizó correctamente");
+        }
+
+        protected void btnBuscar_Click(object sender, EventArgs e)
+        {
+            Carrera carrera = new Carrera();
+            carrera.CodCarrera = txtBuscar.Text.Trim();
+            gvCarrera.DataSource = carrera.Buscar();
+            gvCarrera.DataBind();
+           
         }
     }
 }

@@ -81,10 +81,10 @@ namespace CapaNegocio
         {
             using (SqlConnection conexion = new SqlConnection(cadena))
             {
-                string consulta = "select * from TCarrera where CodCarrera= @CodCarrera";
+                string consulta = "select * from TCarrera where CodCarrera = @CodCarrera";
                 SqlCommand comando = new SqlCommand(consulta, conexion);
                 comando.Parameters.AddWithValue("@CodCarrera", CodCarrera);
-                SqlDataAdapter adapter = new SqlDataAdapter(consulta, conexion);
+                SqlDataAdapter adapter = new SqlDataAdapter(comando);
                 DataTable tabla = new DataTable();
                 adapter.Fill(tabla);
                 return tabla;
