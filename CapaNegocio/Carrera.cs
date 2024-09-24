@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 using System.Configuration; //cadena de conexion
-using System.Configuration.Internal;
 
 namespace CapaNegocio
 {
@@ -36,7 +35,7 @@ namespace CapaNegocio
         {
             using(SqlConnection conexion = new SqlConnection(cadena))
             {
-                string consulta = "insert into TCarrera values(CodCarrera=@CodCarrera, Carrera=@NombreCarrera)";
+                string consulta = "insert into TCarrera values(@CodCarrera, @NombreCarrera)";
                 SqlCommand comando = new SqlCommand(consulta, conexion);
                 comando.Parameters.AddWithValue("@CodCarrera", CodCarrera);
                 comando.Parameters.AddWithValue("@NombreCarrera", NombreCarrera);

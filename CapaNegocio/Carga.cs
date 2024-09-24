@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace CapaNegocio
 {
-    internal class Carga
+    public class Carga
     {
+        public string IdCarga { get; set; }
+        public string CodDocente { get; set; }
+        public string CodAsignatura { get; set; }
+        public string  Semestre { get; set; }
     }
 }

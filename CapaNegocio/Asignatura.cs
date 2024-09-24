@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace CapaNegocio
 {
-    internal class Asignatura
+    public class Asignatura
     {
+        public string CodAsignatura { get; set; }
+        public string NombreAsignatura { get; set; }
+        public string CodRequisito { get; set; }
+
     }
 }

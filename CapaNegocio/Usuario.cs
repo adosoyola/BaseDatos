@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace CapaNegocio
 {
-    internal class Usuario
+    public class Usuario
     {
+        public string CodUsuario { get; set; }
+        public string Contraseña { get; set; } 
+
     }
 }
